@@ -1,0 +1,311 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* height: 100vh; */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  /* background: #1f1f1f; */
+  color: #fff;
+  height: 100vh;
+  width: 100vw;
+}
+
+.browser-window {
+  width: 100vw;
+  height: 100vh;
+  background: #f7f7f7;
+  overflow: hidden;
+}
+
+.top-bar {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items:left;
+  padding: 10px;
+  background: #c4c1c1;
+}
+
+.sort{
+    margin-left: 23px;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+}
+.t{
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #000000;
+  font-size: 16px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  color: #aaa;
+}
+
+.address-bar {
+  flex-grow: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background: white;
+  color: black;
+  font-size: 14px;
+}
+
+.new-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  height: calc(100% - 50px);
+  padding: 20px;
+  gap: 10px;
+}
+
+#afterenter {
+  display: flex;
+  margin: 20px;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: start;
+}
+
+.clock {
+  font-size: 48px;
+  margin: 20px 0;
+  color: black;
+}
+
+.shortcuts {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.shortcut {
+  background: #444;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease-in-out;
+}
+
+.shortcut:hover {
+  background: #666;
+}
+
+.autocomplete-container {
+  position: relative;
+  margin-top: 100px;
+  width: 60%;
+}
+
+#searchBox{
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+  font-size: medium;
+  border: none;
+}
+
+.mainbar{
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  /* border: 2px solid blue; */
+  font-size: 16px;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  /* position: relative; */
+}
+
+.m{
+  position: relative;          /* Needed for pseudo-elements */
+  display: inline-block;       /* So border wraps around */
+  background: #444;
+  padding: 1px;
+  border-radius: 3px;
+  width: 100%;
+  /* max-width: 500px; */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1;                  
+}
+.mainbar:hover{
+  color: #000000;
+}
+
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    .m::after,
+    .m::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      z-index: -1;
+      padding: 3px;
+      border-radius: 10px;
+      animation: 3s spin linear infinite;
+    }
+
+    .m::before {
+      filter: blur(1.5rem);
+      opacity: 0.5;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+    /* 🔴 Hide pseudo-elements when .hide-animation is applied */
+    .m.hide-animation::before,
+    .m.hide-animation::after {
+      opacity: 0 !important;
+    }
+
+
+.suggestions-list {
+  list-style: none;
+  background: #333;
+  border-radius: 5px;
+  margin-top: 4px;
+  padding: 0;
+  max-height: 180px;
+  overflow-y: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  position: absolute;
+  width: 100%;
+  z-index: 999;
+}
+
+.suggestions-list li {
+  padding: 10px;
+  border-bottom: 1px solid #444;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background: #555;
+}
+
+.browser-frame {
+  width: 100%;
+  height: 60%;
+  border: none;
+  margin-top: 10px;
+}
+
+.search-results {
+  padding: 20px;
+  overflow: auto;
+  height: 100vh; 
+  /* border: solid 2px red; */
+  background-color: #f7f7f7;
+}
+
+.result {
+  margin-bottom: 20px;
+  padding: 10px;
+  /* border: solid 2px red; */
+}
+.search-results .result h3 {
+  color: black;
+}
+.search-results .result p {
+  color: black;
+}
+.result:hover{
+  background: #c4c1c1;
+  border-radius: 5px;
+  /* color: #333; */
+}
+.search-results a {
+  text-decoration: none;
+  color: black;
+}
+.search-results a:hover {
+  text-decoration: underline;
+}
+.result h3 {
+  color: #4da6ff;
+  margin: 0;
+}
+
+.result p {
+  color: #ccc;
+  margin: 5px 0 0;
+}
+
+.place {
+  width: 110px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  position: relative;
+  cursor: pointer;
+}
+.place::after {
+  content: "▼";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #333;
+}
+
+.place .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  margin-top: 5px;
+  list-style: none;
+  padding: 0;
+}
+
+.place.open .dropdown {
+  display: block;
+}
+
+.place .dropdown li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.place .dropdown li:hover {
+  background: #f0f0f0;
+}

@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="dummy.css">
+</head>
+<body>
+<div class="top-bar">
+  <div class="T">
+    <input type="text" class="address-bar" value="${queryValue}" />
+    <input type="text" class="address-bar" value="${queryValue}" />
+  </div>
+
+  <div class="sort">
+    <!-- time dropdown -->
+    <div class="place" onclick="this.classList.toggle('open')">
+      Any time
+      <ul class="dropdown">
+        <li>Past hour</li>
+        <li>Past 24 hours</li>
+        <li>Past week</li>
+        <li>Past month</li>
+        <li>Past year</li>
+      </ul>
+    </div>
+
+    <!-- place dropdown -->
+    <div class="place" onclick="this.classList.toggle('open')">
+      Select Place
+      <ul class="dropdown">
+        <li>New York</li>
+        <li>London</li>
+        <li>Tokyo</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>
